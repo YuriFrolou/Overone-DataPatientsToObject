@@ -1,0 +1,95 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+  &__input {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    border: none;
+    &_common:hover {
+      outline: 1px solid brown;
+    }
+    &_common:valid {
+      border: 2px solid green;
+    }
+    &_common:invalid {
+      border: 2px solid red;
+    }
+  }
+  &__input[type="radio"] {
+    width: 20px;
+    margin: 0;
+  }
+  &__input[type="checkbox"] {
+    width: 20px;
+    margin: 0;
+  }
+  &__fieldset {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    margin-bottom: 10px;
+    align-self: flex-start;
+    &_click {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        word-break: break-all;
+      }
+    }
+  }
+  &__select {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    border: none;
+  }
+  &__text {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    border: none;
+    &:hover {
+      outline: 2px solid brown;
+    }
+  }
+  &__btn {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    @include set-background-grad-color;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+      box-shadow: inset 0 0 10px #fff;
+    }
+  }
+}

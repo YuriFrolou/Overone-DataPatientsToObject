@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JS</title>
+</head>
+<body>
+    <div class="outer">
+        <h1 class="main-heading">База данных пациентов</h1>
+        <div class="workspace">
+            <div class="buttons">
+                <h3 class="section-title">Поиск по базе данных</h3>
+                <button class="buttons__all btn">Список всех пациентов</button>
+                <form action="#" class="search-form" name="search-form">
+                <input type="search" placeholder="Поиск по фамилии пациента" class="search-form__input search">
+                <button class="search-form__button btn">Показать данные</button>
+                <div id="tips"></div>
+            </form>
+            </div>
+            <form action="#" class="workspace__form form" name="patients">
+                <h3 class="section-title">Внесите данные пациента</h3>
+                <label for="lastname" class="form__label">Фамилия пациента</label>
+                <input type="text" name="lastname" id="lastname" class="form__input form__input_common" placeholder="Фамилия" required autofocus tabindex="1" pattern="^[A-Za-zА-Яа-яЁё\s]{2,}">
+                <label for="firstname" class="form__label">Имя пациента</label>
+                <input type="text" name="firstname" id="firstname" class="form__input form__input_common" placeholder="Имя" required tabindex="2" pattern="^[A-Za-zА-Яа-яЁё\s]{2,}">
+                <label for="surname" class="form__label">Отчество пациента</label>
+                <input type="text" name="surname" id="surname" class="form__input form__input_common" placeholder="Отчество" tabindex="3" pattern="^[A-Za-zА-Яа-яЁё\s]{2,}">
+                <label for="age" class="form__label">Возраст пациента (г)</label>
+                <input type="number" name="age" id="age" class="form__input form__input_common" placeholder="1-100" min="1" max="100" required tabindex="4">
+                <fieldset  class="form__fieldset">
+                    <legend>Пол пациента</legend>
+                    <label class="form__label form__label_click"><span>Женский</span> <input type="radio" name="gender"  class="form__input radio radio_gender" id="female" value="женский" required></label>
+                    <label class="form__label form__label_click"><span>Мужской</span> <input type="radio" name="gender" class="form__input radio radio_gender" id="male" value="мужской"></label>
+                </fieldset>
+                <label for="diagnosis" class="form__label">Диагноз</label>
+                <input type="text" name="diagnosis" id="diagnosis" class="form__input form__input_common" placeholder="Диагноз" required tabindex="5" pattern="^[A-Za-zА-Яа-яЁё\d\s]{3,}">
+                <label for="operation" class="form__label">Название операции</label>
+                <input type="text" name="operation" id="operation" class="form__input form__input_common" placeholder="Операция" required tabindex="6" pattern="^[A-Za-zА-Яа-яЁё\d\s]{3,}">
+                <label for="anesthesia" class="form__label">Вид анестезии</label>
+                <select name="anesthesia" id="anesthesia" class="form__select" required tabindex="7">
+                    <option value="" disabled selected>Выберите из списка</option>
+                        <option value="Многокомпонентная сбалансированная с ИВЛ">Многокомпонентная сбалансированная с ИВЛ</option>
+                        <option value="Ларингеальномасочная с ИВЛ">Ларингеальномасочная с ИВЛ</option>
+                        <option value="Тотальная внутривенная с ИВЛ">Тотальная внутривенная с ИВЛ</option>
+                        <option value="Тотальная внутривенная на спонтанном дыхании">Тотальная внутривенная на спонтанном дыхании</option>
+                        <option value="Аналгоседация">Аналгоседация</option>
+                </select>
+                <fieldset  class="form__fieldset">
+                    <legend>Дополнительно</legend>
+                    <label class="form__label form__label_click"><span>Интубация</span> <input type="checkbox" name="options"  class="form__input check" value="Интубация"></label>
+                    <label class="form__label form__label_click"><span>Фиброоптическая интубация</span> <input type="checkbox" name="options"  class="form__input check" value="Фиброоптическая интубация"></label>
+                    <label class="form__label form__label_click"><span>Постановка ЦВК</span> <input type="checkbox" name="options"  class="form__input check" value="Постановка ЦВК"></label>
+                    <label class="form__label form__label_click"><span>Постановка артериального катетера</span> <input type="checkbox" name="options"  class="form__input check" value="Постановка артериального катетера"></label>
+                </fieldset>
+                <label for="anesthesiologists" class="form__label">Врач-анестезиолог</label>
+                <select name="anesthesiologists" id="anesthesiologists" class="form__select" required tabindex="8">
+                    <option value="" disabled selected>Выберите из списка</option>
+                    <option value="Смородский">Смородский</option>
+                    <option value="Возжаева">Возжаева</option>
+                    <option value="Ковалевич">Ковалевич</option>
+                    <option value="Кибинь">Кибинь</option>
+                    <option value="Фролов">Фролов</option>
+                </select>
+                <label for="comments" class="form__label">Комментарии</label>
+                <textarea name="comments" id="comments" cols="30" rows="5"
+                    placeholder="Напишите здесь" class="form__text" tabindex="9"></textarea>
+                <button type="submit" class="form__btn">Отправить</button>
+            </form>
+        </div>
+        <div class="results">
+            <button type="button" class="close" onclick="closeResults()">
+                <img src="./img/Close.svg" alt="Close">
+            </button>
+        </div>
+        <div class="success">Данные успешно внесены</div>
+    </div>
+    <script src="./js/functions.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
